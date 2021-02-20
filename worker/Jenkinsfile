@@ -9,6 +9,9 @@ pipeline {
 	stages{
 		
 		stage(build){
+			when{
+				changeset "**/result/**"
+			}
 			steps{
 				echo "Compiling worker"
 
@@ -18,6 +21,9 @@ pipeline {
 			}
 		}
 		stage(test){
+			when{
+				changeset "**/result/**"
+			}
 			steps{
 				echo "Testing worker"
 
@@ -27,6 +33,9 @@ pipeline {
 			}
 		}
 		stage(package){
+			when{
+				changeset "**/result/**"
+			}
 			steps{
 				echo "Packaging worker"
 
