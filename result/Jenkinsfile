@@ -33,7 +33,7 @@ pipeline {
 				}
 			}
 		}
-		stage(docker-build){
+		stage('docker-build'){
 			when{
 				changeset "**/result/**"
 			}
