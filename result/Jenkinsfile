@@ -33,5 +33,14 @@ pipeline {
 				}
 			}
 		}
+		stage(docker-build){
+			when{
+				changeset "**/result/**"
+			}
+			steps{
+                echo 'packaging result app with docker'
+                def resultImage = docker.build("result:${env.BUILD_ID}, "./result")
+			}
+		}
 	}
 }
